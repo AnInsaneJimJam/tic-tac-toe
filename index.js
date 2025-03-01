@@ -22,8 +22,16 @@ function markSymbol(button) {
     const symbol = getSymbol(turn);
     button.innerHTML = symbol;
     DisplayTurn(turn)
-    const idx = button.id
+    const idx = Number(button.id)
     symbol == "X" ? X.push(idx) : O.push(idx)
+    // if (isWinner(symbol == "X" ? X : O)) {
+    //     alert(`${symbol} won!!`)
+    // }
+    console.log(symbol)
+    if (isWinner(symbol == "X" ? X : O)) {
+        document.getElementsByClassName("Winner")[0].innerHTML = `Winner : ${symbol}`
+        
+    }
 
     nextTurn()
     button.removeAttribute("onClick")
@@ -36,7 +44,13 @@ function DisplayTurn(turn) {
 function nextTurn() {
     turn = (turn == 1) ? 2 : 1
 }
-function goingOn() {
-}
 
-function isWinner() { }
+function isWinner(type) {
+    let isSubset = false;
+    for (let i = 0; i < 8; i++) {
+        isSubset = winConditions[i].every(elem => type.includes(elem));
+        if (isSubset) break
+    }
+    return isSubset
+
+}
