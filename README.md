@@ -7,4 +7,6 @@
 3. Button turn X and O according to player turn
 4. Check state function that check whether game win or draw
 5. Final Win Display at bottom
-6. Reset Grid Button
+6. Should handle draw cases
+7. Reset Grid Button
+
