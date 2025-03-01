@@ -1,13 +1,16 @@
-let turn = 2; // 1->X and 2->O
+let turn = 1; // 1->X and 2->O
+const winConditions = []
 
 const displayTurn = document.getElementById("displayTurn")
 
-function getSymbol(turn) {
-    return turn == 1 ? "X" : "O";
+function getSymbol(Turn) {
+    return Turn == 1 ? "X" : "O";
 }
 
-function markSymbol(button, turn) {
+function markSymbol(button) {
+    console.log(turn)
     const symbol = getSymbol(turn);
+    console.log(symbol)
     button.innerHTML = symbol
 }
 
@@ -16,3 +19,7 @@ function DisplayTurn(turn) {
 }
 
 DisplayTurn(turn)
+
+function nextTurn(turn) {
+    return turn == 1 ? 2 : 1
+}
