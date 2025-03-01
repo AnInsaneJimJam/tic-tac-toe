@@ -1,5 +1,6 @@
 let turn = 1; // 1->X and 2->O
-let gameEnded = false
+let gameEnded = false;
+let turnCount = 1;
 
 const winConditions = [
     [1, 2, 3],
@@ -22,19 +23,19 @@ function getSymbol(Turn) {
 }
 
 function markSymbol(button) {
+    if (turnCount == 9) {
+        endGame();
+        draw();
+    }
     const symbol = getSymbol(turn);
     button.innerHTML = symbol;
     const idx = Number(button.id)
     symbol == "X" ? X.push(idx) : O.push(idx)
     console.log(symbol)
     if (isWinner(symbol == "X" ? X : O)) {
-        document.getElementsByClassName("Winner")[0].innerHTML = `Winner : ${symbol}`
-        document.querySelectorAll(".grid button").forEach(button => {
-            button.disabled = true;
-        });
-        gameEnded = true
+        endGame();
     }
-
+    turnCount++;
     nextTurn()
     button.removeAttribute("onClick")
     DisplayTurn(turn)
@@ -55,6 +56,16 @@ function isWinner(type) {
         if (isSubset) break
     }
     return isSubset
+}
+function endGame() {
+    document.getElementsByClassName("Winner")[0].innerHTML = `Winner : ${getSymbol(turn)}`
+    document.querySelectorAll(".grid button").forEach(button => {
+        button.disabled = true;
+    });
+    gameEnded = true
+}
+function draw() {
+    document.getElementsByClassName("Winner")[0].innerHTML = "Game Resulted in a Draw"
 }
 
 function newGame() {
