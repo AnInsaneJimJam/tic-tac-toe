@@ -1,5 +1,14 @@
-let turn = 1; // 1->X and 2->O
-const winConditions = []
+let turn = 2; // 1->X and 2->O
+const winConditions = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [1,4,7],
+    [2,5,8],
+    [3,6,9],
+    [1,5,9],
+    [3,5,7]
+]
 
 const displayTurn = document.getElementById("displayTurn")
 
@@ -8,10 +17,10 @@ function getSymbol(Turn) {
 }
 
 function markSymbol(button) {
-    console.log(turn)
     const symbol = getSymbol(turn);
-    console.log(symbol)
-    button.innerHTML = symbol
+    button.innerHTML = symbol;
+    nextTurn()
+    button.removeAttribute("onClick")
 }
 
 function DisplayTurn(turn) {
@@ -20,6 +29,6 @@ function DisplayTurn(turn) {
 
 DisplayTurn(turn)
 
-function nextTurn(turn) {
-    return turn == 1 ? 2 : 1
+function nextTurn() {
+    turn = (turn == 1 )? 2 : 1
 }
