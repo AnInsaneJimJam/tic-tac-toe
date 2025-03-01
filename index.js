@@ -1,4 +1,5 @@
 let turn = 1; // 1->X and 2->O
+let gameEnded = false
 
 const winConditions = [
     [1, 2, 3],
@@ -23,7 +24,6 @@ function getSymbol(Turn) {
 function markSymbol(button) {
     const symbol = getSymbol(turn);
     button.innerHTML = symbol;
-    DisplayTurn(turn)
     const idx = Number(button.id)
     symbol == "X" ? X.push(idx) : O.push(idx)
     console.log(symbol)
@@ -32,14 +32,16 @@ function markSymbol(button) {
         document.querySelectorAll(".grid button").forEach(button => {
             button.disabled = true;
         });
+        gameEnded = true
     }
 
     nextTurn()
     button.removeAttribute("onClick")
+    DisplayTurn(turn)
 }
 
 function DisplayTurn(turn) {
-    displayTurn.innerHTML = (`TURN : PLAYER ${turn}`);
+    gameEnded ? displayTurn.innerHTML = ("GAME ENDED") : displayTurn.innerHTML = (`TURN : PLAYER ${turn}`);
 }
 
 function nextTurn() {
@@ -53,10 +55,11 @@ function isWinner(type) {
         if (isSubset) break
     }
     return isSubset
-
 }
 
-function newGame(){
+function newGame() {
     location.reload();
 }
+
+DisplayTurn(turn)
 
