@@ -9,23 +9,23 @@
 </head>
 
 <body>
-    <h1> 2 PLAYER TIC-TAC-TOE</h1>
-    <p id="displayTurn"> </p>
-    <div class="grid">
-        <button id="1" onCLick="markSymbol(this)"></button>
-        <button id="2" onClick="markSymbol(this)"></button>
-        <button id="3" onClick="markSymbol(this)"></button>
-        <button id="4" onClick="markSymbol(this)"></button>
-        <button id="5" onClick="markSymbol(this)"></button>
-        <button id="6" onClick="markSymbol(this)"></button>
-        <button id="7" onClick="markSymbol(this)"></button>
-        <button id="8" onClick="markSymbol(this)"></button>
-        <button id="9" onClick="markSymbol(this)"></button>
+    <h1 class = "heading"> 2 PLAYER TIC-TAC-TOE !!</h1>
+    <p id ="displayTurn" class = "turnHeading"> </p>
+    <div class="grid" >
+        <button id="1" onCLick="markSymbol(this)" class = "buttonText"></button>
+        <button id="2" onClick="markSymbol(this)" class = "buttonText"></button>
+        <button id="3" onClick="markSymbol(this)" class = "buttonText"></button>
+        <button id="4" onClick="markSymbol(this)" class = "buttonText"></button>
+        <button id="5" onClick="markSymbol(this)" class = "buttonText"></button>
+        <button id="6" onClick="markSymbol(this)" class = "buttonText"></button>
+        <button id="7" onClick="markSymbol(this)" class = "buttonText"></button>
+        <button id="8" onClick="markSymbol(this)" class = "buttonText"></button>
+        <button id="9" onClick="markSymbol(this)" class = "buttonText"></button>
     </div>
     <h3 class="Winner"></h3>
     <button id="reset"
-        style="height: 40px; border-radius: 5px; background-color: rgba(0, 247, 255, 0.958);font-size: large; width:200px;"
-        onClick="newGame()">
+        style="height: 40px;  ; width:200px;"
+        onClick="newGame()" class = "btn">
         Play new game</button>
     <script src=index.js></script>
 </body>

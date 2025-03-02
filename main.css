@@ -1,21 +1,112 @@
+@font-face {
+    font-family: 'SuperMario';
+    src: url('Fonts/SuperMario256.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GameFont';
+    src: url('Fonts/GameFont.otf') format('opentype');
+}
+
+.heading {
+    font-family: 'SuperMario', cursive;
+    font-size: 3.5rem;
+    color: #ffffff;
+    text-shadow: 3px 3px 0px rgb(251, 218, 175);
+    letter-spacing: 2px;
+    animation: wave 2s infinite;
+}
+
+.buttonText {
+    font-family: 'SuperMario', cursive;
+    font-size: 5rem;
+    color: #ffffff;
+    text-shadow: 3px 3px 0px rgb(239, 145, 199);
+    letter-spacing: 2px;
+}
+
+.turnHeading {
+    font-family: 'SuperMario', cursive;
+    font-size: 2rem;
+    text-shadow: 2px 2px 0px rgb(145, 151, 239);
+    letter-spacing: 2px;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(10px);
+    }
+}
+
+
 button {
     width: 100px;
     height: 100px;
     font-size: 60px;
+    background-color: rgb(251, 218, 175);
+    border-color: rgb(251, 218, 175);
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(239, 145, 199);
 }
 
-#3,#6,#9 {
-    display: block;
+/* Taken from UIVERSE */
+.btn {
+
+    letter-spacing: 1px;
+    font-family: 'GameFont';
+    font-size: 20px;
+    font-weight: 700;
+    background: rgb(255, 255, 255);
+    color: blueviolet;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    border-bottom: 4px solid blueviolet;
+    border-right: 4px solid blueviolet;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transition-duration: 1s;
+    transition-property: border-top, border-left, border-bottom, border-right,
+        box-shadow;
 }
 
-.grid{
+.btn:hover {
+    border-top: 2px solid blueviolet;
+    border-left: 2px solid blueviolet;
+    border-bottom: 2px solid rgb(238, 103, 238);
+    border-right: 2px solid rgb(238, 103, 238);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+        rgba(240, 46, 170, 0.2) 15px 15px;
+}
+
+
+.grid {
     display: grid;
-    grid-template-columns: repeat(3,100px);
-    gap: 0px;
+    grid-template-columns: repeat(3, 100px);
+    gap: 1px;
+}
+
+.Winner {
+    font-family: 'SuperMario', cursive;
+    font-size: 35px;
+    text-shadow: 3px 3px 0px rgb(0, 0, 0);
+    letter-spacing: 2px
 }
