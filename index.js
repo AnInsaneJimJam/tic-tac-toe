@@ -32,7 +32,6 @@ function markSymbol(button) {
     button.innerHTML = symbol;
     const idx = Number(button.id)
     symbol == "X" ? X.push(idx) : O.push(idx)
-    console.log(symbol)
     if (isWinner(symbol == "X" ? X : O)) {
         endGame();
     }
@@ -67,7 +66,7 @@ function isWinner(type) {
 }
 function endGame() {
     displayWinner.innerHTML = `Winner : ${getSymbol(turn)} !!`
-    turn == 1 ? displayWinner.style.color = "rgb(113, 231, 254)" : displayTurn.style.color = "rgb(32, 255, 117)"
+    turn == 1 ? displayWinner.style.color = "rgb(113, 231, 254)" : displayWinner.style.color = "rgb(32, 255, 117)"
     document.querySelectorAll(".grid button").forEach(button => {
         button.disabled = true;
     });
